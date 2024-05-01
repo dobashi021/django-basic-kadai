@@ -1,6 +1,7 @@
 from audioop import reverse
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView,DetailView
+from django.views.generic import TemplateView, ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Product
 from django.urls import reverse_lazy
@@ -14,7 +15,6 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     model = Product
-    context_object_name = "product_detail"
     template_name = "crud/product_detail.html"
 
 class ProductCreateView(CreateView):
